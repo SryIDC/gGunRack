@@ -2,6 +2,7 @@ local ox_inventory = exports.ox_inventory
 local Config = require('config')
 RegisterNetEvent('gRack:client:useItem', function()
     local plate = GetVehicleNumberPlateText(cache.vehicle)
+    local model = qbx.getVehicleDisplayName(cache.vehicle)
     local class = GetVehicleClass(cache.vehicle)
     local id = "GunRack_" .. plate
     if not cache.vehicle then return end
@@ -22,7 +23,7 @@ RegisterNetEvent('gRack:client:useItem', function()
                 duration = 5000,
             }) then
             lib.notify({ description = "Installed gunrack" })
-            TriggerServerEvent('gRack:server:CreateStash', id)
+            TriggerServerEvent('gRack:server:CreateStash', id, model, plate)
         end
     else
         lib.notify({ description = "This vehicle already has a gunrack" })

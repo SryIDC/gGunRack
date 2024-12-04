@@ -10,6 +10,7 @@ description "Gun rack for genesis"
 shared_scripts {
     "config.lua",
     "@ox_lib/init.lua",
+    "@qbx_core/modules/lib.lua",
 }
 
 client_scripts {
@@ -18,5 +19,6 @@ client_scripts {
 }
 
 server_scripts {
+    '@oxmysql/lib/MySQL.lua',
     "server/*.lua",
 }
